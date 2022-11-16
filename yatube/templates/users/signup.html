@@ -1,0 +1,21 @@
+{% extends "form_base.html" %}
+
+{% block title %}Зарегистрироваться{% endblock %}
+
+{% block card_header %}
+  Зарегистрироваться
+{% endblock %}
+
+{% block form %}
+  <form method="post" action="{% url 'users:signup' %}">
+    {% csrf_token %}
+    {% for field in form %}
+      {% include 'includes/form_field.html' %}
+    {% endfor %}
+    <div class="col-md-6 offset-md-4">
+      <button type="submit" class="btn btn-primary">
+        Зарегистрироваться
+      </button>
+    </div>
+  </form>
+{% endblock %}
